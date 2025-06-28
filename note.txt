@@ -1,0 +1,22 @@
+Patient route EndPoint
+    post    /api/v1/patient/newPatient //create new patient
+    get     /api/v1/patient/all    //get all patient
+    get,put,delete /api/v1/patient/:PatientId  //get a patient, update patient profile, delete patient profile
+Diagnosis route end EndPoint
+    get,post    /api/v1/patient/diagnosis/:patientId
+    put      /api/v1/patient/diagnosis/update/:patientId
+    delete      /api/v1/patient/diagnosis/delete/:patientId
+
+Ultrasound route EndPoint
+    get,post    /api/v1/patient/ultrasound/:patientId
+    put         /api/v1/patient/ultrasound/update/:patientId
+    delete      /api/v1/patient/ultrasound/delete/:patientId
+
+Report routes
+    /api/v1/patient/report/estimate/foetal_age/:patientId
+    /api/v1/patient/report/estimate/foetal_weight/:patientId
+    /api/v1/patient/report/estimate/pregnancy/:patientId
+    /api/v1/patient/report/estimate/ultrasound/:patientId
+    /api/v1/patient/report/estimate/delivery_date/:patientId
+    /api/v1/patient/report/estimate/conception_date/:patientId
+   

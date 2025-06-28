@@ -1,0 +1,37 @@
+{
+  "name": "pregnant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-electron": "electronmon .",
+    "start-server": "node ./backend/app.js",
+    "start": "concurrently \"npm run start-electron\" \"npm run start-server\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "electron": "^29.1.4",
+    "electron-builder": "^24.13.3",
+    "electronmon": "^2.0.2",
+    "express": "^4.18.3",
+    "install": "^0.13.0",
+    "sequelize": "^6.37.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "build": {
+    "appId": "PregNANT.com",
+    "productName": "PregNANT",
+    "directories": {
+      "output": "dist"
+    }
+  }
+}
