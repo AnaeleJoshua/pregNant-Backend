@@ -11,7 +11,7 @@ const ReportRoutes = require('./Report/routes')
 // const cors = require('cors');
 // const morgan = require("morgan");
 dotenv.config()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3200
 
 // Sequelize model imports
 const PatientModel = require('./common/model/Patient')
@@ -42,12 +42,14 @@ const createFolder = (folderPath) => {
 
 // middleware
 // app.use(morgan("tiny"));
-// app.use(cors());
+const cors = require("cors");
 
 // Middleware that parses the body payloads as JSON to be consumed next set
 // of middlewares and controllers.
 app.use(express.json())
-
+app.use(cors({
+  origin: '*'
+}));
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   // storage: `${createFolder(folderPath)}/db.sqlite`

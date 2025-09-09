@@ -7,28 +7,31 @@ module.exports = {
     const payload = req.body
     const {biparietalDiameter,
       abdominalCircumference,
+      dateOfUltrasound
     } = req.body
     const foetal_weight = calculateFoetalWeight(biparietalDiameter,abdominalCircumference) 
-    console.log(foetal_weight)
+    console.log('d',dateOfUltrasound)
     const foetal_age  = calculateFoetalAge(foetal_weight)
-    console.log(foetal_age)
+    // console.log(foetal_age)
     const patientId = req.params.patientId
     // payload.patientId = patientId
     try {
       const createdUltrasound = await UltrasoundModel.createUltrasound(Object.assign(payload, { patientId ,foetal_age,foetal_weight}))
       const objectPropExclude = ['patientId', 'ultrasoundId', 'createdAt', 'updatedAt','foetal_age','foetal_weight'] // array of properties to be excluded from response
       const revisedObject = filterObject(createdUltrasound.toJSON(), objectPropExclude) // filterObject returns an object with the given array of propertiesd excluded
+      console.log('created date of ultrasound', new Date(revisedObject.dateOfUltrasound).toISOString().split('T')[0])
+      const formattedObject = Object.assign(revisedObject, {dateOfUltrasound: new Date(revisedObject.dateOfUltrasound).toISOString().split('T')[0]})
       return res.status(200).json({
         status: 'success',
-        data: revisedObject
+        data: formattedObject
       })
     } catch (err) {
       console.error(err)
       return res.status(500).json({
         status: false,
-        error: err
+        error: err                  
       })
-    }
+    } 
   },
   getUltrasound: async (req, res) => {
     const patientId = req.params.patientId

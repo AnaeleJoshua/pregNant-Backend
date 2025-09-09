@@ -40,8 +40,8 @@ module.exports = {
   },
   getAllPatient: async (req, res) => {
     try {
-      const patients = await PatientModel.findAllPatients({ attributes: { exclude: ['createdAt', 'updatedAt', 'patientId', 'age'] } }) // {exclude:['createdAt','updatedAt','patientId','age']} {attributes:['firstName','lastName']}
-      console.log(patients)
+      const patients = await PatientModel.findAllPatients({ attributes: { exclude: ['createdAt', 'updatedAt', 'age'] } }) // {exclude:['createdAt','updatedAt','patientId','age']} {attributes:['firstName','lastName']}
+      console.log('patients',patients)
 
       return res.status(200).json({
         status: 'success',
