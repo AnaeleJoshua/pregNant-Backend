@@ -3,6 +3,8 @@
 ## Overview
 pregNant-Backend is a Node.js backend application for managing pregnancy care data, including patient records, diagnoses, ultrasound reports, and general medical reporting. It uses Express.js for routing and SQLite for data storage, providing RESTful APIs for CRUD operations across multiple healthcare domains.
 
+# ![Project Screenshot](./11.09.2025_17.42.49_REC.png)
+
 ## Features
 - **Patient Management**: Create, update, and retrieve patient records.
 - **Diagnosis Management**: Record and manage patient diagnoses.
